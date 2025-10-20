@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 //1. Context생성
 const TodoContext = createContext();
@@ -21,4 +21,20 @@ const todoReducer = (state, action) => {
     default:
       return state;
   }
+};
+
+// 4. provider 컴포넌트
+export const TodoProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(todoReducer, initialState);
+  return (
+    <TodoContext.Provider value={{ todos: state, dispatch }}>
+      {children}
+    </TodoContext.Provider>
+  );
+};
+
+// 5. Context 사용을 위한 커스텀 훅
+export const useTodos = () => {
+  const context = useContext(TodoContext);
+  return context;
 };
