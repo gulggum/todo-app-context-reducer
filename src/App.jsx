@@ -1,15 +1,12 @@
 import { useState } from "react";
+import TodoForm from "./components/TodoForm.jsx";
 
 function App() {
   return (
     <>
       <div>
         <h1>Todo List</h1>
-
-        <form>
-          <input type="text" placeholder="Please write todo..." />
-          <button type="submit">입력</button>
-        </form>
+        <TodoForm />
         <ul>
           <li>
             <span>리액트 공부하기</span>
