@@ -1,13 +1,20 @@
 import { useState } from "react";
+import { useTodos } from "../context/TodoContext.jsx";
 
 const TodoForm = () => {
-  const [text, setText] = useState("");
+  const [input, setInput] = useState("");
+  const { dispatch } = useTodos();
 
   const onTodoSubmit = (e) => {
     e.preventDefault();
-    if (!text.trim()) return;
-    console.log(text);
-    setText("");
+    if (!input.trim() === "") return; //빈값 방지
+
+    dispatch({
+      type: "ADD_TODO",
+      payload: input,
+    });
+
+    setInput(""); //입력창 초기화
   };
 
   return (
@@ -15,8 +22,8 @@ const TodoForm = () => {
       <input
         type="text"
         placeholder="Please write todo..."
-        onChange={(e) => setText(e.target.value)}
-        value={text}
+        onChange={(e) => setInput(e.target.value)}
+        value={input}
       />
       <button type="submit">추가</button>
     </form>

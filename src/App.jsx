@@ -1,25 +1,18 @@
 import { useState } from "react";
+import { TodoProvider } from "./context/TodoContext.jsx";
 import TodoForm from "./components/TodoForm.jsx";
+import TodoList from "./components/TodoList.jsx";
 
 function App() {
   return (
     <>
-      <div>
-        <h1>Todo List</h1>
-        <TodoForm />
-        <ul>
-          <li>
-            <span>리액트 공부하기</span>
-            <button>수정</button>
-            <button>삭제</button>
-          </li>
-          <li>
-            <span>운동하기</span>
-            <button>수정</button>
-            <button>삭제</button>
-          </li>
-        </ul>
-      </div>
+      <TodoProvider>
+        <div>
+          <h1>Todo List</h1>
+          <TodoForm />
+          <TodoList />
+        </div>
+      </TodoProvider>
     </>
   );
 }

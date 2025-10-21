@@ -8,6 +8,9 @@ const initialState = [];
 
 //3. reducer함수
 const todoReducer = (state, action) => {
+  console.log("[reducer 호출됨");
+  console.log("현재 state:", state);
+  console.log("action:", action);
   switch (action.type) {
     case "ADD_TODO": // 어떤 동작을 할지..
       return [
@@ -18,6 +21,9 @@ const todoReducer = (state, action) => {
           done: false, //완료여부
         },
       ];
+      console.log("새로운 상태:", newState);
+      return newState;
+
     default:
       return state;
   }
