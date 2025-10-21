@@ -1,16 +1,12 @@
 import { useTodos } from "../context/TodoContext.jsx";
-
+import TodoItem from "./TodoItem.jsx";
 const TodoList = () => {
   const { todos } = useTodos();
   console.log("😍투두리스트", todos);
   return (
     <ul>
       {todos.map((todo) => (
-        <li>
-          {todo.text}
-          <button>수정</button>
-          <button>삭제</button>
-        </li>
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </ul>
   );
