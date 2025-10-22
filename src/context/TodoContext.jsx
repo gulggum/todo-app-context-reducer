@@ -9,7 +9,7 @@ const initialState = [];
 //3. reducer함수
 const todoReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_TODO": // 어떤 동작을 할지..
+    case "ADD_TODO": // (어떤 동작을 할지..) 할일추가
       return [
         ...state, //지금까지 있던 todo 목록을 복사해서 유지
         {
@@ -19,10 +19,13 @@ const todoReducer = (state, action) => {
         },
       ];
 
-    case "DELETE_TODO": //삭제기능구현
+    case "DELETE_TODO": //삭제기능
       return state.filter((todo) => todo.id !== action.payload);
-    case "DONE_TODO":
-      return state.className;
+
+    case "TOGGLE_TODO": //투두 완료기능
+      return state.map((todo) =>
+        todo.id === action.payload ? { ...todo, done: !todo.done } : todo
+      );
 
     default:
       return state;
