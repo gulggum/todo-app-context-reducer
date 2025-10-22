@@ -16,6 +16,7 @@ const todoReducer = (state, action) => {
           id: Date.now(),
           text: action.payload, //payload -> 실제 값(input에 사용자가 입력한 텍스트)
           done: false, //완료여부
+          isEditing: false,
         },
       ];
 
@@ -25,6 +26,12 @@ const todoReducer = (state, action) => {
     case "TOGGLE_TODO": //투두 완료기능
       return state.map((todo) =>
         todo.id === action.payload ? { ...todo, done: !todo.done } : todo
+      );
+    case "EDIT_TODO":
+      return state.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, text: action.payload.text }
+          : todo
       );
 
     default:
