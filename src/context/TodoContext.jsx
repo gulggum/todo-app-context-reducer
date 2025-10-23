@@ -4,7 +4,14 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 const TodoContext = createContext();
 
 //2. 초기 상태 (로컬스토리지 추가)
-const initialState = JSON.parse(localStorage.getItem("todos")) || [];
+const initialState = JSON.parse(localStorage.getItem("todos")) || [
+  {
+    id: Date.now(),
+    text: "할일을 입력해보세요 😊",
+    done: false,
+    isEditing: false,
+  },
+];
 
 //3. reducer함수
 const todoReducer = (todos, action) => {
@@ -48,7 +55,7 @@ export const TodoProvider = ({ children }) => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
   return (
-    <TodoContext.Provider value={{ todos: todos, dispatch }}>
+    <TodoContext.Provider value={{ todos, dispatch }}>
       {children}
     </TodoContext.Provider>
   );

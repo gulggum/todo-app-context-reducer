@@ -1,5 +1,23 @@
 import { useState } from "react";
 import { useTodos } from "../context/TodoContext.jsx";
+import styled from "styled-components";
+
+const Form = styled.form`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+`;
+const Input = styled.input`
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin-right: 5px;
+`;
+const Button = styled.button`
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
 
 const TodoForm = () => {
   const [input, setInput] = useState("");
@@ -7,7 +25,10 @@ const TodoForm = () => {
 
   const onTodoSubmit = (e) => {
     e.preventDefault();
-    if (!input.trim() === "") return; //빈값 방지
+    if (input.trim() === "") {
+      alert("텍스트를 입력해주세요.");
+      return;
+    } //빈값 방지
 
     dispatch({
       type: "ADD_TODO",
@@ -18,15 +39,16 @@ const TodoForm = () => {
   };
 
   return (
-    <form onSubmit={onTodoSubmit}>
-      <input
+    <Form onSubmit={onTodoSubmit}>
+      <Input
         type="text"
         placeholder="Please write todo..."
         onChange={(e) => setInput(e.target.value)}
         value={input}
+        autoFocus
       />
-      <button type="submit">추가</button>
-    </form>
+      <Button type="submit">추가</Button>
+    </Form>
   );
 };
 

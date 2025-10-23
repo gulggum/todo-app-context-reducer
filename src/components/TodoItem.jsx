@@ -2,9 +2,43 @@ import { useState } from "react";
 import { useTodos } from "../context/TodoContext.jsx";
 import styled from "styled-components";
 
-const DoneLiStyle = styled.li`
+const Li = styled.li`
+  width: 100%;
+  height: 28px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0px;
+  border-bottom: dotted;
+  border-color: wheat;
   color: ${({ $done }) => ($done ? "#aaa" : "#000")};
   text-decoration: ${({ $done }) => ($done ? "line-through" : "none")};
+`;
+const Button = styled.button`
+  font-size: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 3px;
+  cursor: pointer;
+`;
+const Span = styled.span`
+  max-width: 200px;
+  margin-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+const EditForm = styled.form`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+const InputEdit = styled.input`
+  width: 84%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 5px;
 `;
 
 const TodoItem = ({ todo }) => {
@@ -43,25 +77,30 @@ const TodoItem = ({ todo }) => {
   };
   return (
     <>
-      <DoneLiStyle $done={todo.done}>
+      <Li $done={todo.done}>
         {isEditing ? (
           <>
-            <input
-              value={editText}
-              onChange={onEditChange}
-              placeholder={todo.text}
-            ></input>
-            <button onClick={onEditSubmit}>저장</button>
+            <EditForm>
+              <InputEdit
+                value={editText}
+                onChange={onEditChange}
+                placeholder={todo.text}
+                autoFocus
+              ></InputEdit>
+              <Button onClick={onEditSubmit}>저장</Button>
+            </EditForm>
           </>
         ) : (
           <>
-            {todo.text}
-            <button onClick={onEdit}>수정</button>
-            <button onClick={onDelete}>삭제</button>
-            <button onClick={onTodoToggle}>완료</button>
+            <Span>{todo.text}</Span>
+            <div>
+              <Button onClick={onEdit}>수정</Button>
+              <Button onClick={onDelete}>삭제</Button>
+              <Button onClick={onTodoToggle}>완료</Button>
+            </div>
           </>
         )}
-      </DoneLiStyle>
+      </Li>
     </>
   );
 };
