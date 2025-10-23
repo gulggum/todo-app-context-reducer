@@ -7,6 +7,7 @@ const Li = styled.li`
   height: 28px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 5px 0px;
   border-bottom: dotted;
   border-color: wheat;
@@ -19,6 +20,7 @@ const Button = styled.button`
   border-radius: 5px;
   margin-right: 3px;
   cursor: pointer;
+  background-color: #f0f0f0;
 `;
 const Span = styled.span`
   max-width: 200px;

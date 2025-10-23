@@ -17,6 +17,7 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-color: #f0f0f0;
 `;
 
 const TodoForm = () => {
