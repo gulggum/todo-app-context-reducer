@@ -13,7 +13,6 @@ const Container = styled.div`
   border-radius: 10px;
   padding: 0.6rem;
   margin-top: 2rem;
-  color: #333;
 `;
 
 function App() {

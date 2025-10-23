@@ -20,7 +20,8 @@ const Button = styled.button`
   border-radius: 5px;
   margin-right: 3px;
   cursor: pointer;
-  background-color: #f0f0f0;
+  padding: 5px 6px;
+  -webkit-appearance: none;
 `;
 const Span = styled.span`
   max-width: 200px;
