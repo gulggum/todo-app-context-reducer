@@ -61,6 +61,9 @@ Error generating stack: `+e.message+`
   border-radius: 5px;
   cursor: pointer;
   background-color: #f0f0f0;
+  cursor: pointer;
+  padding: 5px 6px;
+  -webkit-appearance: none;
 `,fv=()=>{const[i,s]=pl.useState(""),{dispatch:o}=vs(),r=g=>{if(g.preventDefault(),i.trim()===""){alert("텍스트를 입력해주세요.");return}o({type:"ADD_TODO",payload:i}),s("")};return vt.jsxs(nv,{onSubmit:r,children:[vt.jsx(iv,{type:"text",placeholder:"Please write todo...",onChange:g=>s(g.target.value),value:i,autoFocus:!0}),vt.jsx(cv,{type:"submit",children:"추가"})]})},sv=jl.li`
   width: 100%;
   height: 28px;
@@ -78,7 +81,8 @@ Error generating stack: `+e.message+`
   border-radius: 5px;
   margin-right: 3px;
   cursor: pointer;
-  background-color: #f0f0f0;
+  padding: 5px 6px;
+  -webkit-appearance: none;
 `,rv=jl.span`
   max-width: 200px;
   margin-right: 5px;
@@ -131,5 +135,4 @@ Error generating stack: `+e.message+`
   border-radius: 10px;
   padding: 0.6rem;
   margin-top: 2rem;
-  color: #333;
 `;function gv(){return vt.jsx(vt.Fragment,{children:vt.jsx(a1,{children:vt.jsxs(vv,{children:[vt.jsx("h1",{children:"Todo List"}),vt.jsx(fv,{}),vt.jsx(mv,{})]})})})}Pm.createRoot(document.getElementById("root")).render(vt.jsx(pl.StrictMode,{children:vt.jsx(gv,{})}));
