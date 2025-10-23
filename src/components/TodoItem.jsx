@@ -19,9 +19,10 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   margin-right: 3px;
-  cursor: pointer;
   padding: 5px 6px;
-  -webkit-appearance: none;
+  background-color: #f0f0f0;
+  color: black;
+  cursor: pointer;
 `;
 const Span = styled.span`
   max-width: 200px;

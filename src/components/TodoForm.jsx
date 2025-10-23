@@ -16,11 +16,11 @@ const Input = styled.input`
 const Button = styled.button`
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  cursor: pointer;
   padding: 5px 6px;
-  -webkit-appearance: none;
+  background-color: #f0f0f0;
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
 `;
 
 const TodoForm = () => {
