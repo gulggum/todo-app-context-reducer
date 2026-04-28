@@ -2,6 +2,8 @@
 
 - 25/10/20 start! ~ 10/22 finished!
 
+- 배포URL [https://gulggum.github.io/todo-app-context-reducer/]
+
 - 코딩 기록
 
 # TodoContext 구성 단계 정리
